@@ -1,27 +1,33 @@
 {
  "actions": [],
+ "allow_import": 1,
  "creation": "2021-08-16 15:47:19.494055",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "course",
+  "course_title",
   "member",
   "member_name",
-  "column_break_3",
+  "column_break_vwbn",
   "issue_date",
-  "expiry_date"
+  "template",
+  "published",
+  "section_break_scyf",
+  "evaluator",
+  "evaluator_name",
+  "column_break_slaw",
+  "expiry_date",
+  "batch_name"
  ],
  "fields": [
   {
+   "default": "Today",
    "fieldname": "issue_date",
    "fieldtype": "Date",
    "label": "Issue Date",
    "reqd": 1
-  },
-  {
-   "fieldname": "column_break_3",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "course",
@@ -52,11 +58,63 @@
    "fieldtype": "Data",
    "label": "Member Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "batch_name",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Batch",
+   "options": "LMS Batch"
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": "Publish on Participant Page"
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "Template",
+   "options": "Print Format",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "course.title",
+   "fieldname": "course_title",
+   "fieldtype": "Data",
+   "label": "Course Title",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vwbn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_scyf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_slaw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "evaluator",
+   "fieldtype": "Link",
+   "label": "Evaluator",
+   "options": "User"
+  },
+  {
+   "fetch_from": "evaluator.full_name",
+   "fieldname": "evaluator_name",
+   "fieldtype": "Data",
+   "label": "Evaluator Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-06 11:49:36.077370",
+ "modified": "2024-09-11 11:37:20.419956",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "LMS Certificate",
@@ -71,6 +129,29 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Moderator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "LMS Student",
    "share": 1,
    "write": 1
   }

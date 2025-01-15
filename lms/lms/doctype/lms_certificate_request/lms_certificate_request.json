@@ -7,12 +7,22 @@
  "engine": "InnoDB",
  "field_order": [
   "course",
+  "course_title",
+  "column_break_4",
   "member",
   "member_name",
+  "section_break_ikne",
   "evaluator",
-  "column_break_4",
+  "evaluator_name",
+  "column_break_sjco",
+  "batch_name",
+  "batch_title",
+  "timezone",
+  "section_break_lifi",
   "date",
   "day",
+  "google_meet_link",
+  "column_break_ddyh",
   "start_time",
   "end_time"
  ],
@@ -29,18 +39,16 @@
   {
    "fieldname": "member",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Member",
    "options": "User",
    "reqd": 1
   },
   {
-   "fetch_from": "course.evaluator",
    "fieldname": "evaluator",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Evaluator",
-   "options": "Course Evaluator",
-   "read_only": 1
+   "options": "User"
   },
   {
    "fieldname": "date",
@@ -66,7 +74,6 @@
   {
    "fieldname": "end_time",
    "fieldtype": "Time",
-   "in_list_view": 1,
    "label": "End Time",
    "reqd": 1
   },
@@ -80,11 +87,68 @@
    "fieldtype": "Data",
    "label": "Member Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_lifi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_ddyh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "google_meet_link",
+   "fieldtype": "Data",
+   "label": "Google Meet Link",
+   "read_only": 1
+  },
+  {
+   "fieldname": "batch_name",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Batch",
+   "options": "LMS Batch"
+  },
+  {
+   "fieldname": "section_break_ikne",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_sjco",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "course.title",
+   "fieldname": "course_title",
+   "fieldtype": "Data",
+   "label": "Course Title",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "evaluator.full_name",
+   "fieldname": "evaluator_name",
+   "fieldtype": "Data",
+   "label": "Evaluator Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "batch_name.timezone",
+   "fieldname": "timezone",
+   "fieldtype": "Data",
+   "label": "Timezone",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "batch_name.title",
+   "fieldname": "batch_title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Batch Title"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-06 11:33:33.711545",
+ "modified": "2024-09-11 11:19:44.669132",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "LMS Certificate Request",
@@ -99,6 +163,41 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Moderator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "LMS Student",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Batch Evaluator",
    "share": 1,
    "write": 1
   }

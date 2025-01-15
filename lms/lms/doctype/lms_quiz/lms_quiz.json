@@ -8,10 +8,23 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
-  "questions",
-  "lesson",
   "max_attempts",
-  "time"
+  "show_answers",
+  "show_submission_history",
+  "column_break_gaac",
+  "total_marks",
+  "passing_percentage",
+  "duration",
+  "section_break_tzbu",
+  "shuffle_questions",
+  "column_break_clsh",
+  "limit_questions_to",
+  "section_break_sbjx",
+  "questions",
+  "section_break_3",
+  "lesson",
+  "column_break_5",
+  "course"
  ],
  "fields": [
   {
@@ -42,15 +55,90 @@
    "label": "Max Attempts"
   },
   {
+   "fetch_from": "lesson.course",
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Course",
+   "options": "LMS Course",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "show_answers",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Show Answers"
+  },
+  {
+   "fieldname": "column_break_gaac",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_sbjx",
+   "fieldtype": "Section Break"
+  },
+  {
    "default": "0",
-   "fieldname": "time",
+   "fieldname": "show_submission_history",
+   "fieldtype": "Check",
+   "label": "Show Submission History"
+  },
+  {
+   "fieldname": "passing_percentage",
    "fieldtype": "Int",
-   "label": "Time Per Question (in Seconds)"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Passing Percentage",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_marks",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Marks",
+   "non_negative": 1,
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "shuffle_questions",
+   "fieldtype": "Check",
+   "label": "Shuffle Questions"
+  },
+  {
+   "depends_on": "shuffle_questions",
+   "fieldname": "limit_questions_to",
+   "fieldtype": "Int",
+   "label": "Limit Questions To"
+  },
+  {
+   "fieldname": "section_break_tzbu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_clsh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Data",
+   "label": "Duration (in minutes)"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-08-19 17:54:41.685182",
+ "modified": "2025-01-06 11:02:09.749207",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "LMS Quiz",
@@ -67,10 +155,45 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Moderator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Course Creator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "LMS Student",
+   "share": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "title",
  "track_changes": 1
 }

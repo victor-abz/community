@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
-# Copyright (c) 2021, FOSS United and Contributors
+# Copyright (c) 2022, Frappe and Contributors
 # See license.txt
-from __future__ import unicode_literals
 
 # import frappe
-import unittest
+from frappe.tests import UnitTestCase
 
-class TestLMSBatch(unittest.TestCase):
+
+class TestLMSBatch(UnitTestCase):
 	pass
